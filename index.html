@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // ここにTetrisのJSXコードを貼り付け
+        const { useState, useEffect, useCallback } = React;
+
+        // TETROMINOSの定義
+        const TETROMINOS = {
+          I: { shape: [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]], color: '#00f5ff' },
+          O: { shape: [[1,1],[1,1]], color: '#ffff00' },
+          T: { shape: [[0,1,0],[1,1,1],[0,0,0]], color: '#a000ff' },
+          S: { shape: [[0,1,1],[1,1,0],[0,0,0]], color: '#00ff00' },
+          Z: { shape: [[1,1,0],[0,1,1],[0,0,0]], color: '#ff0000' },
+          J: { shape: [[1,0,0],[1,1,1],[0,0,0]], color: '#0000ff' },
+          L: { shape: [[0,0,1],[1,1,1],[0,0,0]], color: '#ff7f00' }
+        };
+
+        const BOARD_WIDTH = 10;
+        const BOARD_HEIGHT = 20;
+
+        const Tetris = () => {
+          // ... (Tetrisコンポーネントの全コードをここに貼り付け)
+          const [board, setBoard] = useState(() => 
+            Array(BOARD_HEIGHT).fill(null).map(() => Array(BOARD_WIDTH).fill(0))
+          );
+          
+          // 簡略版のため、基本的な表示のみ
+          return React.createElement('div', {
+            className: 'flex items-center justify-center min-h-screen bg-gray-900 text-white'
+          }, React.createElement('h1', { className: 'text-4xl' }, 'Tetris Game Loading...'));
+        };
+
+        ReactDOM.render(React.createElement(Tetris), document.getElementById('root'));
+    </script>
+</body>
+</html>
